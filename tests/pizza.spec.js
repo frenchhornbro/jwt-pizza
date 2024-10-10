@@ -87,3 +87,17 @@ test('login', async({ page }) => {
   await expect(page.getByRole('link', { name: 'Login' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Register' })).toBeVisible();
 });
+
+
+
+test('login fail', async({ page }) => {
+  await page.goto('http://localhost:5173/');
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByPlaceholder('Email address').fill('nonEmail');
+  await page.getByPlaceholder('Email address').press('Tab');
+  await page.getByPlaceholder('Password').fill('randPassword');
+  await expect(page.locator('form')).toContainText('Are you new? Register instead.');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await expect(page.getByRole('button', { name: 'Login' })).toBeVisible();
+  await expect(page.getByText('Welcome back')).toBeVisible();
+});
