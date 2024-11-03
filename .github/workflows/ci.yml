@@ -53,11 +53,15 @@ jobs:
         with:
           name: package
           path: dist/
+
   deploy:
     needs: build
     permissions:
       id-token: write
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://pizza.myfinancialbudgie.click
     env:
       version: ${{needs.build.outputs.version}}
     steps:
