@@ -9,7 +9,7 @@
 
 **Classification:** Identification and Authentication Failures
 
-**Severity**: 2
+**Severity**: High
 
 **Description:** When a user attempts to create a new user, it does not check if that email was already in the database. If a previous user was in the database, all their data is thus overwritten. Accounts with elevated privileges are reset to diner status.
 
