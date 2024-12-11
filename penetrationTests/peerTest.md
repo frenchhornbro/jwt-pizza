@@ -49,8 +49,6 @@
 
 **Images:**
 
-![defaultPwd.png](defaultpwd.png)
-
 ![storeCreation.png](storeCreation.png)
 
 ![franchiseCreation.png](franchiseCreation.png)
